@@ -55,7 +55,7 @@ const Index = () => {
             transition={{ duration: 0.4 }}
           >
             <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
-              <EditPanel profile={profile} onChange={setProfile} />
+              <EditPanel profile={profile} onChange={setProfile} previewDarkMode={previewDarkMode} onToggleDarkMode={setPreviewDarkMode} />
             </div>
           </motion.div>
 
