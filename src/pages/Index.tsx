@@ -26,6 +26,7 @@ const defaultProfile: ProfileData = {
 
 const Index = () => {
   const [profile, setProfile] = useState<ProfileData>(defaultProfile);
+  const [previewDarkMode, setPreviewDarkMode] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -55,7 +56,7 @@ const Index = () => {
             transition={{ duration: 0.4 }}
           >
             <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
-              <EditPanel profile={profile} onChange={setProfile} />
+              <EditPanel profile={profile} onChange={setProfile} previewDarkMode={previewDarkMode} onToggleDarkMode={setPreviewDarkMode} />
             </div>
           </motion.div>
 
@@ -66,8 +67,8 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <PhoneFrame>
-              <ProfilePreview profile={profile} />
+            <PhoneFrame darkMode={previewDarkMode}>
+              <ProfilePreview profile={profile} darkMode={previewDarkMode} />
             </PhoneFrame>
           </motion.div>
         </div>

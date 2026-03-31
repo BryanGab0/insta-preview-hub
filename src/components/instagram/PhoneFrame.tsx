@@ -3,15 +3,16 @@ import { Wifi, Signal, Battery } from "lucide-react";
 
 interface PhoneFrameProps {
   children: ReactNode;
+  darkMode?: boolean;
 }
 
-const PhoneFrame = ({ children }: PhoneFrameProps) => {
+const PhoneFrame = ({ children, darkMode = false }: PhoneFrameProps) => {
   return (
-    <div className="relative mx-auto w-[375px] rounded-[3rem] border-[8px] border-foreground/90 bg-card shadow-2xl overflow-hidden">
+    <div className={`relative mx-auto w-[375px] rounded-[3rem] border-[8px] shadow-2xl overflow-hidden ${darkMode ? 'border-white/20 bg-black' : 'border-foreground/90 bg-card'}`}>
       {/* Notch */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-foreground/90 rounded-b-2xl z-20" />
+      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] rounded-b-2xl z-20 ${darkMode ? 'bg-black' : 'bg-foreground/90'}`} />
       {/* Status bar */}
-      <div className="relative z-10 flex items-center justify-between px-6 pt-3 pb-1 text-[11px] font-semibold text-foreground">
+      <div className={`relative z-10 flex items-center justify-between px-6 pt-3 pb-1 text-[11px] font-semibold ${darkMode ? 'text-white' : 'text-foreground'}`}>
         <span>9:41</span>
         <div className="flex items-center gap-1">
           <Signal className="w-3.5 h-3.5" />
@@ -24,8 +25,8 @@ const PhoneFrame = ({ children }: PhoneFrameProps) => {
         {children}
       </div>
       {/* Home indicator */}
-      <div className="flex justify-center pb-2 pt-1 bg-card">
-        <div className="w-[134px] h-[5px] rounded-full bg-foreground/30" />
+      <div className={`flex justify-center pb-2 pt-1 ${darkMode ? 'bg-black' : 'bg-card'}`}>
+        <div className={`w-[134px] h-[5px] rounded-full ${darkMode ? 'bg-white/30' : 'bg-foreground/30'}`} />
       </div>
     </div>
   );

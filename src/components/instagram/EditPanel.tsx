@@ -5,14 +5,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import { Camera, Plus, X, Image as ImageIcon, Trash2 } from "lucide-react";
+import { Camera, Plus, X, Image as ImageIcon, Trash2, Moon, Sun } from "lucide-react";
 
 interface EditPanelProps {
   profile: ProfileData;
   onChange: (profile: ProfileData) => void;
+  previewDarkMode: boolean;
+  onToggleDarkMode: (value: boolean) => void;
 }
 
-const EditPanel = ({ profile, onChange }: EditPanelProps) => {
+const EditPanel = ({ profile, onChange, previewDarkMode, onToggleDarkMode }: EditPanelProps) => {
   const profileImageRef = useRef<HTMLInputElement>(null);
   const postImageRef = useRef<HTMLInputElement>(null);
   const highlightImageRefs = useRef<Record<string, HTMLInputElement | null>>({});
@@ -107,6 +109,18 @@ const EditPanel = ({ profile, onChange }: EditPanelProps) => {
           value={profile.displayName}
           onChange={(e) => onChange({ ...profile, displayName: e.target.value })}
           placeholder="Seu Nome"
+        />
+      </div>
+
+      {/* Dark Mode Toggle */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {previewDarkMode ? <Moon className="w-4 h-4 text-muted-foreground" /> : <Sun className="w-4 h-4 text-muted-foreground" />}
+          <Label>Modo escuro do preview</Label>
+        </div>
+        <Switch
+          checked={previewDarkMode}
+          onCheckedChange={onToggleDarkMode}
         />
       </div>
 
