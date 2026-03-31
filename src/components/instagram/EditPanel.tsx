@@ -14,7 +14,7 @@ interface EditPanelProps {
   onToggleDarkMode: (value: boolean) => void;
 }
 
-const EditPanel = ({ profile, onChange }: EditPanelProps) => {
+const EditPanel = ({ profile, onChange, previewDarkMode, onToggleDarkMode }: EditPanelProps) => {
   const profileImageRef = useRef<HTMLInputElement>(null);
   const postImageRef = useRef<HTMLInputElement>(null);
   const highlightImageRefs = useRef<Record<string, HTMLInputElement | null>>({});
