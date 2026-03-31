@@ -25,8 +25,8 @@ const PhoneFrame = ({ children, darkMode = false }: PhoneFrameProps) => {
         {children}
       </div>
       {/* Home indicator */}
-      <div className={`flex justify-center pb-2 pt-1 ${darkMode ? 'bg-black' : 'bg-card'}`}>
-        <div className={`w-[134px] h-[5px] rounded-full ${darkMode ? 'bg-white/30' : 'bg-foreground/30'}`} />
+      <div className={`flex justify-center pb-2 pt-1 ${darkMode ? 'bg-black' : 'bg-white'}`}>
+        <div className={`w-[134px] h-[5px] rounded-full ${darkMode ? 'bg-white/30' : 'bg-neutral-900/30'}`} />
       </div>
     </div>
   );

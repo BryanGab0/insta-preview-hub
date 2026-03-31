@@ -7,12 +7,12 @@ interface ProfilePreviewProps {
 }
 
 const ProfilePreview = ({ profile, darkMode = false }: ProfilePreviewProps) => {
-  const bg = darkMode ? "bg-black" : "bg-card";
-  const text = darkMode ? "text-white" : "text-foreground";
-  const textMuted = darkMode ? "text-neutral-500" : "text-muted-foreground";
-  const borderColor = darkMode ? "border-neutral-800" : "border-border";
-  const secondaryBg = darkMode ? "bg-neutral-800" : "bg-secondary";
-  const secondaryText = darkMode ? "text-white" : "text-secondary-foreground";
+  const bg = darkMode ? "bg-black" : "bg-white";
+  const text = darkMode ? "text-white" : "text-neutral-900";
+  const textMuted = darkMode ? "text-neutral-500" : "text-neutral-400";
+  const borderColor = darkMode ? "border-neutral-800" : "border-neutral-200";
+  const secondaryBg = darkMode ? "bg-neutral-800" : "bg-neutral-100";
+  const secondaryText = darkMode ? "text-white" : "text-neutral-900";
 
   return (
     <div className={`${bg} min-h-full`}>
