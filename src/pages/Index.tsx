@@ -61,6 +61,9 @@ const Index = () => {
               <p className="text-[11px] text-muted-foreground">Visualize seu perfil</p>
             </div>
           </div>
+          <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)} className="rounded-full">
+            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </Button>
         </div>
       </header>
 
