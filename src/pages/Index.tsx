@@ -26,6 +26,7 @@ const defaultProfile: ProfileData = {
 
 const Index = () => {
   const [profile, setProfile] = useState<ProfileData>(defaultProfile);
+  const [previewDarkMode, setPreviewDarkMode] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
