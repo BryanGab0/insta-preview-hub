@@ -112,6 +112,18 @@ const EditPanel = ({ profile, onChange, previewDarkMode, onToggleDarkMode }: Edi
         />
       </div>
 
+      {/* Dark Mode Toggle */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {previewDarkMode ? <Moon className="w-4 h-4 text-muted-foreground" /> : <Sun className="w-4 h-4 text-muted-foreground" />}
+          <Label>Modo escuro do preview</Label>
+        </div>
+        <Switch
+          checked={previewDarkMode}
+          onCheckedChange={onToggleDarkMode}
+        />
+      </div>
+
       {/* Verified */}
       <div className="flex items-center justify-between">
         <Label>Selo de verificado</Label>
