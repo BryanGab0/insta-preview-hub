@@ -66,8 +66,8 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <PhoneFrame>
-              <ProfilePreview profile={profile} />
+            <PhoneFrame darkMode={previewDarkMode}>
+              <ProfilePreview profile={profile} darkMode={previewDarkMode} />
             </PhoneFrame>
           </motion.div>
         </div>
