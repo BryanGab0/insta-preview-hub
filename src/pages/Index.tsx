@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ProfileData } from "@/types/instagram";
 import PhoneFrame from "@/components/instagram/PhoneFrame";
 import ProfilePreview from "@/components/instagram/ProfilePreview";
 import EditPanel from "@/components/instagram/EditPanel";
-import { Instagram } from "lucide-react";
+import { Instagram, Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const defaultProfile: ProfileData = {
   username: "seuprofile",
