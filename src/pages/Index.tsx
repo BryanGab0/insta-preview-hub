@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ProfileData } from "@/types/instagram";
 import PhoneFrame from "@/components/instagram/PhoneFrame";
 import ProfilePreview from "@/components/instagram/ProfilePreview";
 import EditPanel from "@/components/instagram/EditPanel";
-import { Instagram } from "lucide-react";
+import { Instagram, Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const defaultProfile: ProfileData = {
   username: "seuprofile",
@@ -27,6 +28,24 @@ const defaultProfile: ProfileData = {
 const Index = () => {
   const [profile, setProfile] = useState<ProfileData>(defaultProfile);
   const [previewDarkMode, setPreviewDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("dark") ||
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -42,6 +61,9 @@ const Index = () => {
               <p className="text-[11px] text-muted-foreground">Visualize seu perfil</p>
             </div>
           </div>
+          <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)} className="rounded-full">
+            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </Button>
         </div>
       </header>
 
