@@ -5,11 +5,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import { Camera, Plus, X, Image as ImageIcon, Trash2 } from "lucide-react";
+import { Camera, Plus, X, Image as ImageIcon, Trash2, Moon, Sun } from "lucide-react";
 
 interface EditPanelProps {
   profile: ProfileData;
   onChange: (profile: ProfileData) => void;
+  previewDarkMode: boolean;
+  onToggleDarkMode: (value: boolean) => void;
 }
 
 const EditPanel = ({ profile, onChange }: EditPanelProps) => {
